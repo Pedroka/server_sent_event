@@ -5,7 +5,7 @@ Um serviço para se utilizar em aplicações em tempo real. Para esse projeto ut
 
 - **[Python 3.11+](https://www.python.org/)**
 - **[FastAPI](https://fastapi.tiangolo.com/)**: Framework web moderno e de alta performance.
-- **[Redis] (https://redis.io/docs/latest/develop/clients/redis-py/)**: Redis como uma especie de mensageria.
+- **[Redis](https://redis.io/docs/latest/develop/clients/redis-py/)**: Redis como uma especie de mensageria.
 - **[Docker & Docker Compose](https://www.docker.com/)**: Containerização do Redis
 
 ## 🛠️ Arquitetura e Lógica
