@@ -1,5 +1,7 @@
 # 🔗 Server Sent Event - SSE
-Um serviço para se utilizar em aplicações em tempo real. Para esse projeto utilizei o REDIS como um receptor das mensagens, uma espécie de fila, e o backend "escutando" as mensagens que chegam e redirecionando para o meu HTML
+Um serviço para se utilizar em aplicações em tempo real. Para esse projeto utilizei o REDIS como um receptor das mensagens, uma espécie de fila, e o backend "escutando" as mensagens que chegam e redirecionando para o meu HTML.
+
+**[Clique Aqui](https://www.youtube.com/watch?v=uiT4oK19hu4&list=PLNHxHgB-_LTusKqdWaZJtRbcqEMXPZXtw)** para saber mais sobre Server Sent Event (SSE) e sua utilização.
 
 ## 🚀 Tecnologias Utilizadas
 
