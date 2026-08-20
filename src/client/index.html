@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI - Server-Sent Events</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background: #f4f4f9; }
+        #eventos { border: 1px solid #ccc; padding: 15px; background: #fff; height: 300px; overflow-y: auto; }
+        .item-evento { padding: 8px; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+    <h1>Feed de Eventos em Tempo Real</h1>
+    <!-- Container onde as mensagens serão inseridas -->
+    <div id="eventos"></div>
+
+    <script>
+        const evtSource = new EventSource("http://localhost:8000/stream_data");
+        const containerEventos = document.getElementById("eventos");
+
+        function renderizar(rawMessage) {
+            try {
+                const dados = JSON.parse(rawMessage);
+                const novoElemento = document.createElement("div");
+                novoElemento.className = "item-evento";
+                novoElemento.textContent = typeof dados.data === "object" 
+                    ? JSON.stringify(dados.data) 
+                    : (dados.data ?? rawMessage);
+
+                containerEventos.appendChild(novoElemento);
+                containerEventos.scrollTop = containerEventos.scrollHeight;
+            } catch (err) {
+                console.error("Erro ao fazer parse do JSON:", err);
+            }
+        }
+
+        // Escuta o evento nomeado 'notification'
+        evtSource.addEventListener("notification", (e) => renderizar(e.data));
+    </script>
+</body>
+</html>
